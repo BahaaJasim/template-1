@@ -1,0 +1,790 @@
+/* ======================================== 
+General styles
+==========================================  */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+.clear {
+    clear: both;
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(49, 79, 39, 0.35); */
+    background-color: rgba(185, 251, 192, 0.5)
+}
+button {
+    font-family: inherit;
+}
+.hover-effect {
+    transition: opacity 0.5s;
+}
+.hover-effect:hover {
+    opacity: 0.8;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section-header .section-title {
+    font-size: 2.3rem;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+.section-header .line {
+    display: block;
+    width: 60px;
+    height: 5px;
+    background-color: #069506;
+    margin: 0 auto 70px;
+}
+.padding-y {
+    padding: 120px 0;
+}
+.ltr-effect {
+    position: relative;
+}
+.ltr-effect::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #b9fbc0;
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+.ltr-effect:hover::after {
+    width: 100%;
+}
+.ttb-effect {
+    position: relative;
+}
+.ttb-effect::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: #b9fbc0;
+    z-index: -1;
+    transition: height 0.5s ease;
+}
+.ttb-effect:hover::after {
+    height: 100%;
+}
+/* ======================================== 
+Header styles
+==========================================  */
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #2a9d8f;
+    z-index: 2;
+}
+.logo-container {
+    width: 40%;
+    float: left;
+}
+.logo {
+    display: inline;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-family: 'Merienda', cursive;
+    font-weight: bold;
+    font-size: 40px;
+    cursor: pointer;
+}
+.navbar {
+    width: 60%;
+    list-style: none;
+    text-align: right;
+    float: left;
+}
+.navbar > li {
+    display: inline-block;
+}
+.navbar > li > a {
+    display: block;
+    padding: 20px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.navbar > li > a.active::after,
+.navbar > li > a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    margin-top: 2px;
+    background-color: #ffffff;
+    transition: width 0.2s;
+}
+.navbar > li > a.active::after{
+    width: 100%;
+}
+.navbar > li > a::after {
+    width: 0;
+}
+.navbar > li > a:hover::after {
+    width: 100%;
+}
+.dropdown {
+    position: relative;
+}
+.submenu {
+    position: absolute;
+    background-color: #b9fbc0;
+    width: 250px;
+    text-align: left;
+    left: 10%;
+    top: 70%;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+}
+.dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+.submenu li a {
+    display: block;
+    color: #2a9d8f;
+    font-size: 0.9rem;
+    padding: 7px 15px;
+    margin: 10px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: padding-left 0.3s ease-in;
+}
+.submenu li a:hover {
+    padding-left: 20px;
+}
+/* ======================================== 
+Hero styles
+==========================================  */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url(../images/hero-img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.hero-heading {
+    color: #fff;
+    font-size: 3.7rem;
+    text-transform: capitalize;
+    word-spacing: -5px;
+}
+.hero-heading span {
+    font-weight: normal;
+}
+.hero-description {
+    color: #fff;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+.hero .btn {
+    min-width: 160px;
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 1em 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+.btn-start {
+    margin-right: 10px;
+    background-color: #fff;
+}
+.btn-learn {
+    background-color: #2a9d8f;
+    color: #fff;
+}
+/* ======================================== 
+About styles
+==========================================  */
+.about {
+
+}
+.about-container {
+    overflow: hidden; /*to solve float issues*/ 
+}
+.about-item {
+    width: 30%;
+    float: left;
+    text-align: center;
+    border: 1px solid #e0e6e0;
+    padding: 3rem 1.2rem;
+}
+.about-item.item-mid {
+    margin: 0 5%;
+}
+.about-item .icon {
+    margin-bottom: 1rem;
+}
+.about-item .icon-1 {
+    color: #ffcc29;
+}
+.about-item .icon-2 {
+    color: #f58634;
+}
+.about-item .icon-3 {
+    color: #ff6363;
+}
+.about-item-title {
+    text-transform: capitalize;
+    margin-bottom: 0.7rem;
+    transition: color 0.5s;
+}
+.about-item-description {
+    line-height: 1.6;
+    margin-bottom: 0.7rem;
+}
+.about-item-link {
+    color: #069506;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: bold;
+}
+.about-item:hover .about-item-title {
+    color: #fff;
+}
+/* ======================================== 
+Recepies styles
+==========================================  */
+.recepies {
+    background-color: azure;
+}
+.recepie-item {
+    position: relative;
+    width: 32%;
+    padding: 10px;
+    float: left;
+    margin-bottom: 15px;
+}
+.recepie-item img {
+    width: 100%;
+}
+.mid-img {
+    margin: 0 2%;
+}
+.recepie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 175, 145, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+}
+.recepie-item:hover .recepie-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+.recepie-info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.recepie-category {
+    position: relative;
+    top: 10px;
+    display: block;
+    color: #054205;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: top 0.5s ease;
+}
+.recepie-title {
+    position: relative;
+    top: 10px;
+    font-size: 3rem;
+    text-transform: capitalize;
+    color: #fff;
+    margin-bottom: 10px;
+    transition: top 0.5s ease;
+}
+.recepie-info a {
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #069506;
+    transition: top 0.5s ease;
+}
+.recepie-info a i {
+    line-height: 40px;
+    color: #e0e6e0;
+}
+.recepie-item:hover .recepie-category,
+.recepie-item:hover .recepie-title,
+.recepie-item:hover .recepie-info a {
+    top: 0;
+}
+/* ======================================== 
+Services styles
+==========================================  */
+.services-container {
+    overflow: hidden; /* to solve the problem of float */ 
+}
+.service-item {
+    position: relative;
+    width: 30%;
+    float: left;
+    border: 1px solid #e0e6e0;
+    padding: 30px 15px 30px 70px;
+    margin-bottom: 20px;
+}
+.service-item.item-mid {
+    margin: 0 5%;
+}
+.service-item i {
+    position: absolute;
+    font-size: 2rem;
+    color: #054205;
+    left: 15px;
+    top: 35px;
+}
+.service-item-title {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    transition: color 0.5s ease;
+}
+.service-item-description {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color: #00AF91;
+    line-height: 1.6;
+    transition: color 0.5s ease;
+}
+.service-item:hover .service-item-title {
+    color: #fff;
+}
+.service-item:hover .service-item-description{
+    color: #fff;
+}
+/* ======================================== 
+Products styles
+==========================================  */
+.products {
+    background-color: #e0e6e0;
+}
+.product-side {
+    width: 50%;
+    float: left;
+}
+.product-side .section-header {
+    text-align: left;
+}
+.product-side .section-header .line {
+    margin: 0 0 40px 0;
+}
+.product-side .product-description {
+    font-size: 0.95rem;
+    color: #00AF91;
+    line-height: 1.6;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+.product-side .product-list {
+    list-style: none;
+}
+.product-side .product-list li {
+    color: #054205;
+    margin-bottom: 10px;
+}
+.product-side .product-list li i {
+    margin-right: 10px;
+}
+.product-img img {
+    width: 100%;
+}
+.product-bullets {
+    list-style: none;
+    text-align: center;
+}
+.product-bullets li {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 10px 5px;
+    background-color: #95b9b3;
+}
+.product-bullets li.active {
+    background-color: #054205;
+}
+/* ======================================== 
+Statistics styles
+==========================================  */
+.statistics {
+    position: relative;
+    height: 300px;
+    background: url(../images/statistics-img.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.statistics-container {
+    padding: 100px 0;
+}
+.statistics-item {
+    float: left;
+    width: 25%;
+    text-align: center;
+    z-index: 2;
+}
+.statistics-item .icon {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.statistics-item-title {
+    color: #e0e6e0;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.statistics-item-description {
+    color: #fff;
+}
+/* ======================================== 
+Pricing styles
+==========================================  */
+.pricing-container {
+    overflow: hidden;
+}
+.pricing-item {
+    width: 30%;
+    float: left;
+    padding: 40px 15px;
+    text-align: center;
+    border: 1px solid #95b9b3;
+}
+.pricing-item.item-mid {
+    margin: 0 5%;
+}
+.pricing-item-text {
+    color: #069506;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+.pricing-item-cost {
+    width: 130px;
+    height: 130px;
+    padding: 20px 0;
+    margin: 20px auto;
+    border: 2px solid #00AF91;
+    border-radius: 50%;
+    transition: color 0.5s ease;
+}
+.pricing-item-cost .currency {
+    font-size: 2.5rem;
+}
+.pricing-item-cost .meal {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.pricing-item .pricing-list {
+    list-style: none;
+}
+.pricing-list li {
+    color: #00AF91;
+    line-height: 1.8;
+}
+.pricing-item-order {
+    display: block;
+    width: 140px;
+    border: 0;
+    background: none;
+    border: 2px solid #069506;
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    color: #00AF91;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.pricing-item:hover .pricing-item-cost {
+    color: #fff;
+}
+/* ======================================== 
+Testimonials styles
+==========================================  */
+.testimonials {
+    position: relative;
+    height: 400px;
+    background: url(../images/testimonials-img.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.testimonials-container {
+    overflow: hidden;
+    padding: 120px 0;
+}
+.testimony-item {
+    width: 50%;
+    float: left;
+    color: #033403;
+}
+.testimony-heading {
+    position: relative;
+    padding: 10px 2px 50px 110px;
+}
+.testimony-heading .client-img {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 90px;
+    height: 90px;
+}
+.testimony-heading .client-img img {
+    width: 100%;
+    border-radius: 50%;
+
+}
+.testimony-heading h3 {
+    margin: 5px 0;
+}
+.testimony-heading span {
+    color: #054205;
+}
+.testimony-description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+/* ======================================== 
+Team styles
+==========================================  */
+.team-container {
+    overflow: hidden;
+}
+.team-member {
+    width: 30%;
+    float: left;
+    text-align: center;
+    background-color: #e5eeec;
+    padding: 40px 10px;
+}
+.team-member.item-mid {
+    margin: 0 5%;
+}
+.team-member-img {
+    position: relative;
+    width: 90%;
+    margin: auto;
+}
+.team-member-img img {
+    width: 100%;
+}
+.team-member-name {
+    color: #054205;
+    margin: 10px 0;
+}
+.team-member-position {
+    color: #033403;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.team-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(197, 214, 197, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+.team-overlay a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #00AF91;
+    color: #fff;
+    margin-left: auto;
+}
+.team-overlay a i {
+    line-height: 40px;
+}
+.team-member:hover .team-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+.team-member.ttb-effect {
+    z-index: 1;
+}
+/* ======================================== 
+Blog styles
+==========================================  */
+.blog {
+    background-color: #e5eeec;
+}
+.blog-container {
+    overflow: hidden;
+}
+.blog-item {
+    width: 30%;
+    float: left;
+    background-color: #fff;
+}
+.blog-item.item-mid {
+    margin: 0 5%;
+}
+.blog-item-img {
+    height: 200px;
+}
+.blog-item-img img {
+    width: 100%;
+    height: 100%;
+}
+.blog-details {
+    padding: 20px;
+}
+.blog-list {
+    list-style: none;
+    margin: 10px 0;
+}
+.blog-list li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.blog-list li i {
+    color: #00AF91;
+}
+.blog-title {
+    font-weight: bold;
+    margin: 20px 0;
+}
+.blog-description {
+    color: #00AF91;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.blog-link {
+    color: #069506;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* ======================================== 
+Contact styles
+==========================================  */
+.contact-heading-container {
+    overflow: hidden;
+}
+.contact-item {
+    width: 30%;
+    float: left;
+    text-align: center;
+}
+.contact-item.item-mid {
+    margin: 0 5%;
+}
+.contact-item i {
+    color: #069506;
+    font-size: 1.9rem;
+}
+.contact-item h3 {
+    margin: 10px 0;
+}
+form {
+    width: 40%;
+    margin: auto;
+    margin-top: 50px;
+}
+form input, textarea {
+    display: block;
+    padding: 12px;
+    border: 0;
+    background-color: #e9f3f1;
+    margin: 10px 2px;
+    width: 100%;
+    font-size: 1rem;
+}
+form textarea {
+    height: 200px;
+}
+form .submit {
+    width: 150px;
+    margin: auto;
+    color: #fff;
+    background-color: #00AF91;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+form .submit:hover {
+    background-color: #15bda1;
+}
+/* ======================================== 
+Footer styles
+==========================================  */
+.footer {
+    background-color: #033403;
+    text-align: center;
+    padding: 60px 0;
+}
+.footer .logo {
+    display: inline;
+}
+.footer-links {
+    list-style: none;
+}
+.footer-links li {
+    display: inline-block;
+}
+.footer-links li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #00AF91;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+.footer-links li a i {
+    line-height: 50px;
+}
+.copyright {
+    font-size: 15px;
+    color: #00AF91;
+    margin-top: 20px;
+}
